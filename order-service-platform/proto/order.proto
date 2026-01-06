@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package common;
+option go_package = "proto/pb;pb";
+
+//protoc --go_out=. --go-grpc_out=. order.proto
+
+service OrderService {
+  rpc Order (OrderRequest) returns (OrderResponse);
+}
+
+message OrderRequest {
+  int64 user_id  = 1;
+  int64 event_id = 2;
+  intz quantity = 3;
+}
+
+message OrderResponse {
+}
